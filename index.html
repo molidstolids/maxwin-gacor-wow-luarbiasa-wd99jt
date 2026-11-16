@@ -2074,6 +2074,158 @@
     </style>
     <script type="text/javascript" async=""
         src="//www.pragmaticplay.com/?wordfence_lh=1&amp;hid=A99AA3BE641F23ACFC1EA784874079F1&amp;r=0.3763018746631892"></script>
+    <style id="mobile-fullscreen-css">
+        /* Mobile and Desktop Fullscreen Optimization for Chrome and all browsers */
+        .game-fullscreen:fullscreen,
+        .game-fullscreen:-webkit-full-screen,
+        .game-fullscreen:-moz-full-screen,
+        .game-fullscreen:-ms-fullscreen,
+        .game-fullscreen.is-fullscreen,
+        .game-fullscreen.fullscreen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            width: 100% !important;
+            height: 100vh !important;
+            height: 100dvh !important;
+            max-width: none !important;
+            max-height: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            z-index: 2147483647 !important;
+            background-color: #000 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+        }
+
+        .game-fullscreen:fullscreen .game-details__iframe-container,
+        .game-fullscreen:-webkit-full-screen .game-details__iframe-container,
+        .game-fullscreen:-moz-full-screen .game-details__iframe-container,
+        .game-fullscreen:-ms-fullscreen .game-details__iframe-container,
+        .game-fullscreen.is-fullscreen .game-details__iframe-container,
+        .game-fullscreen.fullscreen .game-details__iframe-container {
+            position: relative !important;
+            flex: 1 1 auto !important;
+            width: 100% !important;
+            height: calc(100% - 46px) !important;
+            height: calc(100dvh - 46px) !important;
+            min-height: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+        }
+
+        .game-fullscreen:fullscreen .game_wrapper,
+        .game-fullscreen:-webkit-full-screen .game_wrapper,
+        .game-fullscreen:-moz-full-screen .game_wrapper,
+        .game-fullscreen:-ms-fullscreen .game_wrapper,
+        .game-fullscreen.is-fullscreen .game_wrapper,
+        .game-fullscreen.fullscreen .game_wrapper,
+        .game-fullscreen:fullscreen .game,
+        .game-fullscreen:-webkit-full-screen .game,
+        .game-fullscreen:-moz-full-screen .game,
+        .game-fullscreen:-ms-fullscreen .game,
+        .game-fullscreen.is-fullscreen .game,
+        .game-fullscreen.fullscreen .game {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 100% !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+
+        .game-fullscreen:fullscreen iframe,
+        .game-fullscreen:-webkit-full-screen iframe,
+        .game-fullscreen:-moz-full-screen iframe,
+        .game-fullscreen:-ms-fullscreen iframe,
+        .game-fullscreen.is-fullscreen iframe,
+        .game-fullscreen.fullscreen iframe {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+        }
+
+        .game-fullscreen:fullscreen .game-details__iframe-nav,
+        .game-fullscreen:-webkit-full-screen .game-details__iframe-nav,
+        .game-fullscreen:-moz-full-screen .game-details__iframe-nav,
+        .game-fullscreen:-ms-fullscreen .game-details__iframe-nav,
+        .game-fullscreen.is-fullscreen .game-details__iframe-nav,
+        .game-fullscreen.fullscreen .game-details__iframe-nav {
+            flex: 0 0 auto !important;
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            width: 100% !important;
+            height: 46px !important;
+            min-height: 46px !important;
+            background: #111 !important;
+            background: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            padding: 8px 16px !important;
+            padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important;
+            padding-left: calc(16px + env(safe-area-inset-left, 0px)) !important;
+            padding-right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+            z-index: 1000 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            .game-fullscreen:fullscreen .game-details__iframe-nav,
+            .game-fullscreen:-webkit-full-screen .game-details__iframe-nav,
+            .game-fullscreen.is-fullscreen .game-details__iframe-nav,
+            .game-fullscreen.fullscreen .game-details__iframe-nav {
+                height: 38px !important;
+                min-height: 38px !important;
+                padding: 4px 12px !important;
+            }
+            .game-fullscreen:fullscreen .game-details__iframe-container,
+            .game-fullscreen:-webkit-full-screen .game-details__iframe-container,
+            .game-fullscreen.is-fullscreen .game-details__iframe-container,
+            .game-fullscreen.fullscreen .game-details__iframe-container {
+                height: calc(100% - 38px) !important;
+                height: calc(100dvh - 38px) !important;
+            }
+        }
+
+        html.game-is-fullscreen,
+        body.game-is-fullscreen {
+            overflow: hidden !important;
+            touch-action: none !important;
+        }
+
+        .game-details__iframe-btn {
+            cursor: pointer !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            touch-action: manipulation !important;
+        }
+    </style>
 </head>
 
 <body
@@ -2593,7 +2745,7 @@
             <div class="game-fullscreen col-lg-12 col-md-12 col-sm-12 col-xs-12" data-fullscreen="">                <div class="game-details__iframe-container html5-ratio">
                     <div class="game_wrapper">
                         <div class="game">
-                            <iframe id="iframe" tabindex="0" frameborder="0" scrolling="no" data-game-src="https://demogamesfree-asia.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympmmd&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fid%2F&amp;lang=id&amp;cur=IDR" style="border:none;" src="https://demogamesfree-asia.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympmmd&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fid%2F&amp;lang=id&amp;cur=IDR&amp;lang=EN&amp;cur=USD"></iframe>
+                            <iframe id="iframe" tabindex="0" frameborder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allow="fullscreen; autoplay; screen-wake-lock" data-game-src="https://demogamesfree-asia.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympmmd&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fid%2F&amp;lang=id&amp;cur=IDR" style="border:none;" src="https://demogamesfree-asia.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympmmd&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fid%2F&amp;lang=id&amp;cur=IDR&amp;lang=EN&amp;cur=USD"></iframe>
                         </div>
                     </div>
                 </div>
@@ -2607,7 +2759,7 @@
                         </div>
                         <div data-close="" style="display:none">
                             <a class="game-details__iframe-btn pull-right">
-                                <i class="fa fa-expand"></i><span>Keluar layar penuh</span> </a>
+                                <i class="fa fa-compress"></i><span>Keluar layar penuh</span> </a>
                         </div>
                     </div>
                 </div>
@@ -2765,6 +2917,196 @@
                 style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
         </div><iframe style="display: none;"></iframe>
     </div>
+    <script id="mobile-fullscreen-fix">
+        (function () {
+            function setupFullscreen() {
+                var container = document.querySelector('[data-fullscreen]');
+                if (!container) return;
+
+                var iframe = container.querySelector('#iframe') || container.querySelector('iframe');
+                var buttons = container.querySelector('[data-buttons]');
+                var openWrapper = container.querySelector('[data-open]');
+                var closeWrapper = container.querySelector('[data-close]');
+                var isFullscreenState = false;
+
+                // Ensure iframe has proper permissions
+                if (iframe) {
+                    iframe.setAttribute('allowfullscreen', 'true');
+                    iframe.setAttribute('webkitallowfullscreen', 'true');
+                    iframe.setAttribute('mozallowfullscreen', 'true');
+                    iframe.setAttribute('allow', 'fullscreen; autoplay; screen-wake-lock; orientation');
+                }
+
+                function checkNative() {
+                    return !!(
+                        document.fullscreenElement ||
+                        document.webkitFullscreenElement ||
+                        document.mozFullScreenElement ||
+                        document.msFullscreenElement
+                    );
+                }
+
+                function updateFullscreenUI(active) {
+                    isFullscreenState = active;
+                    if (active) {
+                        container.classList.add('fullscreen');
+                        container.classList.add('is-fullscreen');
+                        document.body.classList.add('game-is-fullscreen');
+                        document.documentElement.classList.add('game-is-fullscreen');
+                        if (openWrapper) openWrapper.style.display = 'none';
+                        if (closeWrapper) closeWrapper.style.display = 'block';
+                        if (iframe) {
+                            iframe.style.width = '100%';
+                            iframe.style.height = '100%';
+                        }
+                    } else {
+                        container.classList.remove('fullscreen');
+                        container.classList.remove('is-fullscreen');
+                        document.body.classList.remove('game-is-fullscreen');
+                        document.documentElement.classList.remove('game-is-fullscreen');
+                        if (openWrapper) openWrapper.style.display = 'block';
+                        if (closeWrapper) closeWrapper.style.display = 'none';
+                        if (iframe) {
+                            iframe.style.width = '100%';
+                            iframe.style.height = '100%';
+                        }
+                    }
+                }
+
+                function requestFullscreen() {
+                    updateFullscreenUI(true);
+
+                    var req = container.requestFullscreen ||
+                              container.webkitRequestFullscreen ||
+                              container.webkitRequestFullScreen ||
+                              container.mozRequestFullScreen ||
+                              container.msRequestFullscreen;
+
+                    if (req) {
+                        try {
+                            var promise = req.call(container, { navigationUI: 'hide' });
+                            if (promise && promise.catch) {
+                                promise.catch(function (err) {
+                                    console.warn('Native fullscreen request rejected, using CSS fallback:', err);
+                                });
+                            }
+                        } catch (e) {
+                            console.warn('Native fullscreen call error:', e);
+                        }
+                    }
+
+                    try {
+                        if (iframe && iframe.contentWindow) {
+                            iframe.contentWindow.focus();
+                        }
+                    } catch (e) {}
+                }
+
+                function exitFullscreen() {
+                    if (checkNative()) {
+                        var exit = document.exitFullscreen ||
+                                   document.webkitExitFullscreen ||
+                                   document.webkitCancelFullScreen ||
+                                   document.mozCancelFullScreen ||
+                                   document.msExitFullscreen;
+                        if (exit) {
+                            try {
+                                var promise = exit.call(document);
+                                if (promise && promise.catch) {
+                                    promise.catch(function () {});
+                                }
+                            } catch (e) {}
+                        }
+                    }
+                    updateFullscreenUI(false);
+                }
+
+                // Handle Esc key
+                window.addEventListener('keydown', function (e) {
+                    if (e.keyCode === 27 && isFullscreenState) {
+                        exitFullscreen();
+                    }
+                });
+
+                // Listen to native fullscreen changes (e.g. Back button / swipe gesture)
+                function onFullscreenChange() {
+                    var nativeActive = checkNative();
+                    if (!nativeActive && isFullscreenState) {
+                        updateFullscreenUI(false);
+                    } else if (nativeActive && !isFullscreenState) {
+                        updateFullscreenUI(true);
+                    }
+                }
+
+                document.addEventListener('fullscreenchange', onFullscreenChange);
+                document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+                document.addEventListener('mozfullscreenchange', onFullscreenChange);
+                document.addEventListener('MSFullscreenChange', onFullscreenChange);
+
+                // Neutralize legacy jQuery click and resize handlers from main.min.js
+                function neutralizeLegacy() {
+                    if (window.jQuery) {
+                        window.jQuery(buttons).off('click');
+                        window.jQuery(container).find('[data-open]').off('click');
+                        window.jQuery(container).find('[data-close]').off('click');
+                        window.jQuery(container).find('.game-details__iframe-btn').off('click');
+                        // Crucial: remove the buggy resize handler from main.min.js that caused the screen to bounce back / exit ("mental")
+                        window.jQuery(window).off('resize');
+                    }
+                    if (window.GP_APP && window.GP_APP.modules) {
+                        window.GP_APP.modules.fullScreenIframe = {
+                            init: function () {}
+                        };
+                    }
+                }
+
+                neutralizeLegacy();
+
+                // Capture-phase click listener to preempt and override any legacy handlers
+                if (buttons) {
+                    buttons.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+
+                        neutralizeLegacy();
+
+                        var openTarget = e.target.closest('[data-open]');
+                        var closeTarget = e.target.closest('[data-close]');
+
+                        if (openTarget) {
+                            requestFullscreen();
+                        } else if (closeTarget) {
+                            exitFullscreen();
+                        } else {
+                            if (isFullscreenState) {
+                                exitFullscreen();
+                            } else {
+                                requestFullscreen();
+                            }
+                        }
+                    }, true); // Capture phase = true
+                }
+
+                // Window resize listener: keep iframe at 100% and NEVER exit fullscreen!
+                window.addEventListener('resize', function () {
+                    if (isFullscreenState && iframe) {
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupFullscreen);
+            } else {
+                setupFullscreen();
+            }
+
+            window.addEventListener('load', function () {
+                setupFullscreen();
+            });
+        })();
+    </script>
 </body>
 
 </html>
