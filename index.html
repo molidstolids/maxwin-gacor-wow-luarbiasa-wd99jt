@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Madame Destiny Megaways - Pragmatic Play Demo</title>
     <link rel="icon" href="https://www.pragmaticplay.com/wp-content/uploads/2019/03/cropped-222-32x32.png" sizes="32x32">
@@ -15,9 +15,112 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Mobile and Desktop Fullscreen Optimization for Chrome and all browsers */
+        /* Container responsiveness & edge-to-edge on mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                margin: 0 !important;
+            }
+            .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .game-fullscreen {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+
+        /* --- Normal (Non-fullscreen) Mode Container --- */
+        .game-details__iframe-container {
+            position: relative !important;
+            width: 100% !important;
+            overflow: hidden !important;
+            background-color: #000 !important;
+        }
+
+        /* Desktop: Standard 16/9 ratio with minimum comfortable height */
+        @media (min-width: 769px) {
+            .game-details__iframe-container.html5-ratio {
+                height: auto !important;
+                aspect-ratio: 16 / 9 !important;
+                min-height: 520px !important;
+                padding-bottom: 0 !important;
+                border-radius: 8px 8px 0 0 !important;
+            }
+        }
+
+        /* Mobile Portrait (iPhone & Android): Sized to give Pragmatic Play reels adequate vertical room */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .game-details__iframe-container.html5-ratio {
+                height: 75vh !important;
+                height: 75dvh !important;
+                min-height: 500px !important;
+                max-height: 84vh !important;
+                padding-bottom: 0 !important;
+                border-radius: 0 !important;
+            }
+        }
+
+        /* Mobile Landscape (iPhone & Android): Full viewport height minus bottom bar */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .game-details__iframe-container.html5-ratio {
+                height: calc(100vh - 46px) !important;
+                height: calc(100dvh - 46px) !important;
+                min-height: 320px !important;
+                padding-bottom: 0 !important;
+                border-radius: 0 !important;
+            }
+        }
+
+        /* CRITICAL FOR WEBKIT (iOS SAFARI) & ANDROID CHROME:
+           Fix WebKit 0px height collapse inside padding/aspect containers.
+           Pin wrapper and game divs directly to container bounds. */
+        .game-details__iframe-container .game_wrapper,
+        .game-details__iframe-container .game {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            overflow: hidden !important;
+        }
+
+        .game-details__iframe-container iframe,
+        #iframe {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            border: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        /* --- Fullscreen Mode (Native & Simulated for iOS) --- */
         .game-fullscreen:fullscreen,
         .game-fullscreen:-webkit-full-screen,
         .game-fullscreen:-moz-full-screen,
@@ -57,54 +160,12 @@
             height: calc(100% - 46px) !important;
             height: calc(100dvh - 46px) !important;
             min-height: 0 !important;
+            max-height: none !important;
             padding-bottom: 0 !important;
             margin: 0 !important;
             overflow: hidden !important;
             display: block !important;
-        }
-
-        .game-fullscreen:fullscreen .game_wrapper,
-        .game-fullscreen:-webkit-full-screen .game_wrapper,
-        .game-fullscreen:-moz-full-screen .game_wrapper,
-        .game-fullscreen:-ms-fullscreen .game_wrapper,
-        .game-fullscreen.is-fullscreen .game_wrapper,
-        .game-fullscreen.fullscreen .game_wrapper,
-        .game-fullscreen:fullscreen .game,
-        .game-fullscreen:-webkit-full-screen .game,
-        .game-fullscreen:-moz-full-screen .game,
-        .game-fullscreen:-ms-fullscreen .game,
-        .game-fullscreen.is-fullscreen .game,
-        .game-fullscreen.fullscreen .game {
-            width: 100% !important;
-            height: 100% !important;
-            min-height: 100% !important;
-            position: relative !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: block !important;
-        }
-
-        .game-fullscreen:fullscreen iframe,
-        .game-fullscreen:-webkit-full-screen iframe,
-        .game-fullscreen:-moz-full-screen iframe,
-        .game-fullscreen:-ms-fullscreen iframe,
-        .game-fullscreen.is-fullscreen iframe,
-        .game-fullscreen.fullscreen iframe {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 100% !important;
-            min-height: 100% !important;
-            max-width: 100% !important;
-            max-height: 100% !important;
-            border: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: block !important;
+            border-radius: 0 !important;
         }
 
         .game-fullscreen:fullscreen .game-details__iframe-nav,
@@ -135,6 +196,7 @@
             align-items: center !important;
             box-sizing: border-box !important;
             border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 0 !important;
         }
 
         @media (max-height: 500px) and (orientation: landscape) {
@@ -176,8 +238,14 @@
             gap: 10px !important;
             background: #111 !important;
             padding: 8px 14px !important;
-            border-radius: 0 0 6px 6px !important;
+            border-radius: 0 0 8px 8px !important;
             box-sizing: border-box !important;
+        }
+
+        @media (max-width: 768px) {
+            .game-details__iframe-nav {
+                border-radius: 0 !important;
+            }
         }
 
         /* Currency Toggle Switcher (USD <-> IDR) */
@@ -240,7 +308,20 @@
                 <div class="game-details__iframe-container html5-ratio">
                     <div class="game_wrapper">
                         <div class="game">
-                            <iframe id="iframe" tabindex="0" frameborder="0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allow="fullscreen; autoplay; screen-wake-lock" data-game-src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vswaysmwss&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fen%2F&amp;lang=en&amp;cur=USD" style="border:none;" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vswaysmwss&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fen%2F&amp;lang=en&amp;cur=USD"></iframe>
+                            <iframe id="iframe"
+                                    tabindex="0"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    playsinline="true"
+                                    webkit-playsinline="true"
+                                    allowfullscreen="true"
+                                    webkitallowfullscreen="true"
+                                    mozallowfullscreen="true"
+                                    allow="fullscreen; autoplay; screen-wake-lock; encrypted-media; gyroscope; accelerometer"
+                                    data-game-src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vswaysmwss&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fen%2F&amp;lang=en&amp;cur=USD"
+                                    style="border:none;"
+                                    src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vswaysmwss&amp;websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&amp;jurisdiction=99&amp;lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fen%2F&amp;lang=en&amp;cur=USD">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -266,52 +347,27 @@
         </div>
     </div>
 
-    <div class="age-popup" data-age-check="">
-        <div class="box" id="game_pop">
-            <div class="title">
-                <h3>Pragmatic Play content is intended for persons 18 years or older</h3>
-            </div>
-            <div class="subtitle">
-                <p>Please confirm you meet the legal age requirement to continue</p>
-            </div>
-            <div class="buttons">
-                <a href="#" class="top-btn" data-age-check-confirm="">
-                    <span>Yes, I am 18 years or older</span>
-                </a>
-                <a href="javascript:history.go(-1)" class="bottom-btn">
-                    <span>No, take me back</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <script id="mobile-fullscreen-fix">
         (function () {
-            // --- Age Check Handler ---
-            var agePopup = document.querySelector('[data-age-check]');
-            if (agePopup) {
-                if (localStorage.getItem('age_check') === '1' || document.cookie.indexOf('age_check=1') !== -1) {
-                    agePopup.classList.remove('visible');
-                    agePopup.style.display = 'none';
-                } else {
-                    agePopup.classList.add('visible');
-                    document.body.style.overflow = 'hidden';
-                    var confirmBtn = agePopup.querySelector('[data-age-check-confirm]');
-                    if (confirmBtn) {
-                        confirmBtn.addEventListener('click', function (e) {
-                            e.preventDefault();
-                            agePopup.classList.remove('visible');
-                            agePopup.style.display = 'none';
-                            document.body.style.overflow = '';
-                            localStorage.setItem('age_check', '1');
-                            document.cookie = 'age_check=1; path=/; max-age=31536000';
-                        });
+            // Safe localStorage helper (protects against iOS Safari Private Browsing quota/security exceptions)
+            var safeStorage = {
+                get: function (key) {
+                    try {
+                        return window.localStorage ? window.localStorage.getItem(key) : null;
+                    } catch (e) {
+                        return null;
                     }
+                },
+                set: function (key, val) {
+                    try {
+                        if (window.localStorage) {
+                            window.localStorage.setItem(key, val);
+                        }
+                    } catch (e) {}
                 }
-            }
+            };
 
-            // --- Mobile & Desktop Fullscreen Handler ---
-            function setupFullscreen() {
+            function setupGame() {
                 var container = document.querySelector('[data-fullscreen]');
                 if (!container) return;
 
@@ -325,16 +381,18 @@
                     iframe.setAttribute('allowfullscreen', 'true');
                     iframe.setAttribute('webkitallowfullscreen', 'true');
                     iframe.setAttribute('mozallowfullscreen', 'true');
-                    iframe.setAttribute('allow', 'fullscreen; autoplay; screen-wake-lock; orientation');
+                    iframe.setAttribute('playsinline', 'true');
+                    iframe.setAttribute('webkit-playsinline', 'true');
+                    iframe.setAttribute('allow', 'fullscreen; autoplay; screen-wake-lock; encrypted-media; gyroscope; accelerometer');
                 }
 
                 // --- Currency Switcher (USD <-> IDR) ---
                 var currencyBtns = container.querySelectorAll('.currency-btn');
                 function setCurrency(cur, force) {
-                    var currentSaved = localStorage.getItem('game_currency') || 'USD';
+                    var currentSaved = safeStorage.get('game_currency') || 'USD';
                     if (!force && currentSaved === cur) return;
 
-                    localStorage.setItem('game_currency', cur);
+                    safeStorage.set('game_currency', cur);
 
                     currencyBtns.forEach(function (btn) {
                         if (btn.getAttribute('data-currency') === cur) {
@@ -346,12 +404,18 @@
 
                     if (!iframe) return;
 
+                    var currentSrc = iframe.getAttribute('data-game-src') || iframe.src || '';
+
+                    // Avoid restarting iframe if it already loaded requested currency
+                    if (force && currentSrc.indexOf('cur=' + cur) !== -1) {
+                        return;
+                    }
+
                     var lang = (cur === 'IDR') ? 'id' : 'en';
                     var lobby = (cur === 'IDR') ?
                         'https%3A%2F%2Fwww.pragmaticplay.com%2Fid%2F' :
                         'https%3A%2F%2Fwww.pragmaticplay.com%2Fen%2F';
 
-                    var currentSrc = iframe.getAttribute('data-game-src') || iframe.src || '';
                     var symbolMatch = currentSrc.match(/gameSymbol=([a-zA-Z0-9_]+)/);
                     var symbol = (symbolMatch && symbolMatch[1]) ? symbolMatch[1] : 'vswaysmwss';
 
@@ -372,7 +436,8 @@
                     });
                 });
 
-                var savedCur = localStorage.getItem('game_currency');
+                // Apply saved currency if set
+                var savedCur = safeStorage.get('game_currency');
                 if (savedCur && (savedCur === 'IDR' || savedCur === 'USD')) {
                     setCurrency(savedCur, true);
                 }
@@ -512,13 +577,13 @@
             }
 
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', setupFullscreen);
+                document.addEventListener('DOMContentLoaded', setupGame);
             } else {
-                setupFullscreen();
+                setupGame();
             }
 
             window.addEventListener('load', function () {
-                setupFullscreen();
+                setupGame();
             });
         })();
     </script>
